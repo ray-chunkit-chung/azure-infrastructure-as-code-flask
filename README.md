@@ -1,3 +1,11 @@
+
+
+# DataDog
+```
+docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=69de58a28024b61bce8a2adeae2e5da8 -e DD_SITE="us3.datadoghq.com" gcr.io/datadoghq/agent:7
+```
+
+
 # Modified from
 
 https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli
