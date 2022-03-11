@@ -1,5 +1,19 @@
 
 # Getting started on Azure infrastructure as code
+
+Create
+```
+az group create --name arm-vscode --location eastus
+
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
+
+Delete
+```
+az group delete --name arm-vscode
+```
+
+Getting start docs
  - https://devblogs.microsoft.com/devops/what-is-infrastructure-as-code/
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/?WT.mc_id=azuredevops-azuredevops-jagord
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax?WT.mc_id=azuredevops-azuredevops-jagord
