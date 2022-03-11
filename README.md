@@ -16,6 +16,22 @@ Delete
 az group delete --name arm-vscode
 ```
 
+Export existing template
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/export-template-cli
+```
+# To export all resources in a resource group, use az group export and provide the resource group name
+az group export --name demoGroup
+
+az group export --name demoGroup > exportedtemplate.json
+
+# To export one resource, pass that resource ID
+storageAccountID=$(az resource show --resource-group demoGroup --name demostg --resource-type Microsoft.Storage/storageAccounts --query id --output tsv)
+az group export --resource-group demoGroup --resource-ids $storageAccountID
+
+# To export more than one resource
+az group export --resource-group <resource-group-name> --resource-ids $storageAccountID1 $storageAccountID2
+```
+
 Getting start docs
  - https://devblogs.microsoft.com/devops/what-is-infrastructure-as-code/
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/?WT.mc_id=azuredevops-azuredevops-jagord
