@@ -30,6 +30,9 @@ az group export --resource-group demoGroup --resource-ids $storageAccountID
 
 # To export more than one resource
 az group export --resource-group <resource-group-name> --resource-ids $storageAccountID1 $storageAccountID2
+
+# To get application-scope credentials
+az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
 Getting start docs
@@ -40,6 +43,8 @@ Getting start docs
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/variables
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-cloud-consistency
  - https://docs.microsoft.com/en-us/learn/paths/deploy-manage-resource-manager-templates/
+ - https://docs.microsoft.com/en-us/azure/app-service/deploy-configure-credentials?tabs=cli
+
 
 # Best practices
  - Limit the size of your template to 4 MB. 
