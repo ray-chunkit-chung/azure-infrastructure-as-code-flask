@@ -6,9 +6,9 @@ Install cli
 
 Create
 ```
-az group create --name arm-vscode --location eastus
+az group create --name test2 --location eastus --subscription basic2
 
-az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+az deployment group create --resource-group test2 --template-file test2_azuredeploy.json --parameters test2_azuredeploy.parameters.json
 ```
 
 Delete
