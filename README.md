@@ -1,6 +1,89 @@
 
+# Getting started on Azure infrastructure as code
+ - https://devblogs.microsoft.com/devops/what-is-infrastructure-as-code/
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/?WT.mc_id=azuredevops-azuredevops-jagord
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax?WT.mc_id=azuredevops-azuredevops-jagord
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameters
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/variables
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-cloud-consistency
+
+# Best practices
+ - Limit the size of your template to 4 MB. 
+ - 256 parameters
+ - 256 variables
+ - 800 resources (including copy count)
+ - 64 output values
+ - 24,576 characters in a template expression
+ - Minimize your use of parameters. Instead, use variables or literal values
+ - Use camel case for parameter names
+ - Use parameters for settings that vary according to the environment, like SKU, size, or capacity
+ - Use parameters for resource names that you want to specify for easy identification
+ - Provide a description of every parameter in the metadata
+ - Define default values for parameters that aren't sensitive
+ - Always use parameters for user names and passwords (or secrets). Use securestring for all passwords and secrets
+ - Use parameter location resourceGroup().location
+ - Use camel case for variable names.
+ - Don't use variables/parameters for the API version.
+ - If the storage account is deployed in the same template that you're creating and the name of the storage account isn't shared with another resource in the template, you don't need to specify the provider namespace or the apiVersion when you reference the resource
+
+```
+"diagnosticsProfile": {
+  "bootDiagnostics": {
+    "enabled": "true",
+    "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
+  }
+}
+```
+
+ - or an existing storage account that's in a different resource group
+
+```
+"diagnosticsProfile": {
+  "bootDiagnostics": {
+    "enabled": "true",
+    "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+  }
+}
+```
+
+ - Assign public IP addresses to a virtual machine only when an application requires it
+ - To connect to a virtual machine (VM) for debugging, or for management or administrative purposes, use inbound NAT rules, a virtual network gateway, or a jumpbox
+ - The domainNameLabel property for public IP addresses must be unique
+ - When you add a password to a custom script extension, use the commandToExecute property in the protectedSettings property
+ - Specify explicit values for properties that have default values that could change over time
+ - Use ARM template test toolkit, a script that checks whether your template uses recommended practice
+ - Ensure template functions work
+ - Use nested templates across regions Working with linked artifacts
+ - Make linked templates accessible across clouds
+ - Use \_artifactsLocation instead of hardcoding links
+ - Factor in differing regional capabilities. Regions can differ in availability of Azure services or updates
+ - Verify the version of all resource types: A set of properties is common for all resource types, but each resource also has its own specific properties. New features and related properties are added to existing resource types at times through a new API version
+ - Refer to resource locations with a parameter
+ - Track versions using API profiles
+ - Check endpoint references
+ - Refer to existing resources by unique ID
+ - Ensure VM images are available
+ - Check local VM sizes
+ - Check use of Azure Managed Disks in Azure Stack
+ - Check that VM extensions are available
+ - Ensure that versions are available
+ - Do make use of testing tools
+ - Perform static code analysis with unit tests and integration tests
+ - Tests should only warn when an issue is found
+ - 
+
+
+# Connecting to virtual machines for debug
+ - https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+ - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/winrm
+ - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal
+ - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-powershell
+ - https://docs.microsoft.com/en-us/azure/virtual-machines/linux/nsg-quickstart
+
 
 # DataDog
+
+Get stuck on the first line. Datadog cannot get the message from my local agent.
 ```
 docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=69de58a28024b61bce8a2adeae2e5da8 -e DD_SITE="us3.datadoghq.com" gcr.io/datadoghq/agent:7
 ```
