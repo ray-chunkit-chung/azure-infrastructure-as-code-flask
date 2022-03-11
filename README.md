@@ -23,6 +23,7 @@ Getting start docs
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameters
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/variables
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-cloud-consistency
+ - https://docs.microsoft.com/en-us/learn/paths/deploy-manage-resource-manager-templates/
 
 # Best practices
  - Limit the size of your template to 4 MB. 
