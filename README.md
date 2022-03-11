@@ -1,6 +1,9 @@
 
 # Getting started on Azure infrastructure as code
 
+Install cli
+ - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell
+
 Create
 ```
 az group create --name arm-vscode --location eastus
