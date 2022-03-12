@@ -11,14 +11,22 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 Create
 ```
-az group create --name test2 --location eastus --subscription basic2
+#!/bin/bash
 
-az deployment group create --resource-group test2 --template-file test2_azuredeploy.json --parameters test2_azuredeploy.parameters.json
+# Create a resource group.
+az group create --location $LOCATION --name $RESOURCEGROUP_NAME --subscription $SUBSCRIPTION_NAME
+
+# Create serverfarm and web app from a single template.
+az deployment group create --resource-group $RESOURCEGROUP_NAME \
+--template-file ArmTemplate/AppService/template.json \
+--parameters ArmTemplate/AppService/parameters.json
+
+echo "You can now browse to http://$WEB_APP_NAME.azurewebsites.net"
 ```
 
 Delete
 ```
-az group delete --name arm-vscode
+az group delete --name $RESOURCEGROUP_NAME
 ```
 
 Export existing template
