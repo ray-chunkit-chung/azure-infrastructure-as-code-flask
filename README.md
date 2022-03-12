@@ -9,6 +9,19 @@ Or install azure cli linux
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
+Use
+```
+source .env
+```
+to source environment variables in .env file
+```
+export SUBSCRIPTION_ID=foo-bar-foo-foo-bar
+export SUBSCRIPTION_NAME=foo-bar-foo-foo-bar
+export RESOURCEGROUP_NAME=foo-bar-foo-foo-bar
+export LOCATION=eastus
+export WEB_APP_NAME=foo-bar-foo-foo-bar
+```
+
 Create
 ```
 #!/bin/bash
@@ -29,6 +42,7 @@ Delete
 az group delete --name $RESOURCEGROUP_NAME
 ```
 
+
 Export existing template
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/export-template-cli
 ```
@@ -48,7 +62,7 @@ az group export --resource-group <resource-group-name> --resource-ids $storageAc
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-Getting start docs
+# Getting start docs
  - https://devblogs.microsoft.com/devops/what-is-infrastructure-as-code/
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/?WT.mc_id=azuredevops-azuredevops-jagord
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax?WT.mc_id=azuredevops-azuredevops-jagord
