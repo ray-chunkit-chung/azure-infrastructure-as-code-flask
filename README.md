@@ -1,8 +1,13 @@
 
 # Getting started on Azure infrastructure as code
 
-Install cli
+Install azure cli windows
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell
+
+Or install azure cli linux
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
 
 Create
 ```
