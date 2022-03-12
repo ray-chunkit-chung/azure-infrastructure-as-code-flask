@@ -11,8 +11,8 @@ az group create --location $LOCATION --name $RESOURCEGROUP_NAME --subscription $
 
 # Create serverfarm and web app from a single template.
 az deployment group create --resource-group $RESOURCEGROUP_NAME \
---template-file ARMTemplate/AppService/template.json \
---parameters ARMTemplate/AppService/parameters.json
+--template-file ArmTemplate/AppService/template.json \
+--parameters ArmTemplate/AppService/parameters.json
 
 echo "You can now browse to http://$WEB_APP_NAME.azurewebsites.net"
 
