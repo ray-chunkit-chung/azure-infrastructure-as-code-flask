@@ -181,6 +181,11 @@ If you still get the error, see this
 sudo chmod 666 /var/run/docker.sock
 ```
 
+# Web server
+
+ - https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
+ - https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
+
 # Modified from
 
 ## Tutorial link
