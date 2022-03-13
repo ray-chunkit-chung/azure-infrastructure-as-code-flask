@@ -164,12 +164,29 @@ docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v
 ```
 
 
+# Docker Desktop
+Docker Desktop x VSCode is very good. Successfully encapsulate all the things I need.
+
+If you have unix socket issue, which prevent you from building or pulling dockerhub images, see this Fix Docker VS Code Error: connect EACCES /var/run/docker.sock
+
+ - https://www.davidhayden.me/blog/fix-docker-vs-code-error-connect-eacces-var-run-docker-sock
+ - https://code.visualstudio.com/docs/containers/troubleshooting
+ - https://docs.docker.com/engine/install/linux-postinstall/
+
+If you still get the error, see this
+
+ - https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+
+```
+sudo chmod 666 /var/run/docker.sock
+```
+
 # Modified from
 
+## Tutorial link
 https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli
 
-
-# Deploy a Python (Flask) web app to Azure App Service - Sample Application
+## Deploy a Python (Flask) web app to Azure App Service - Sample Application
 
 This is the sample Flask application for the Azure Quickstart [Deploy a Python (Django or Flask) web app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python).  For instructions on how to create the Azure resources and deploy the application to Azure, refer to the Quickstart article.
 
