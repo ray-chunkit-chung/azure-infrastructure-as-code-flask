@@ -1,18 +1,15 @@
-# Docker best practice
-# https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
-
-#Grab the latest alpine image
-FROM alpine:latest
-
-# Install python and pip
+# Build environment
+FROM alpine:latest as build
+RUN apk update
 RUN apk add --no-cache --update python3 py3-pip bash
-ADD webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
+RUN mkdir /tmp
+COPY requirements.txt /tmp
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
-# Add our code
-ADD webapp /opt/webapp/
+# Build app
+COPY webapp/. /opt
 WORKDIR /opt/webapp
 
 # Run the image as a non-root user
