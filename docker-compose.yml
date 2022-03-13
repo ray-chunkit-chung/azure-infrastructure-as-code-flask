@@ -3,10 +3,8 @@ version: "3.9"
 services:
   dev:
     image: $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
-    expose:
-      - 80
     ports:
-      - "8080:80"
+      - "8080:5000"
     env_file:
       - ./.env
-    command: ["gunicorn", "--bind", "0.0.0.0:8080", "wsgi"]
+    command: ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi"]
