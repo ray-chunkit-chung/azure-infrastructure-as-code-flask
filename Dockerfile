@@ -17,6 +17,11 @@ RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 COPY webapp /opt/webapp/
 WORKDIR /opt/webapp
 
+
+###########################################
+# Manual deploy if no auto port binding
+###########################################
+
 # Run the image as a non-root user
 # RUN adduser -D app-user
 # USER app-user
