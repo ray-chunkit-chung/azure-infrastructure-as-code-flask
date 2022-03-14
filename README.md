@@ -160,7 +160,7 @@ az webapp deployment list-publishing-profiles --resource-group <group-name> --na
 
 Get stuck on the first line. Datadog cannot get the message from my local agent.
 ```
-docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=69de58a28024b61bce8a2adeae2e5da8 -e DD_SITE="us3.datadoghq.com" gcr.io/datadoghq/agent:7
+docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=foo-bar-foo-foo-bar -e DD_SITE="us3.datadoghq.com" gcr.io/datadoghq/agent:7
 ```
 
 
