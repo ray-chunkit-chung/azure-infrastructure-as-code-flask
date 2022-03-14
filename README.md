@@ -188,6 +188,7 @@ Good exmaples to setup production servers
  - https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
  - https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
  - https://docs.gunicorn.org/en/stable/deploy.html
+ - https://www.nginx.com/resources/glossary/reverse-proxy-server/
 
 # Modified from
 
