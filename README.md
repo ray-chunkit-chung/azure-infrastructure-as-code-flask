@@ -188,7 +188,16 @@ Good exmaples to setup production servers
  - https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
  - https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
  - https://docs.gunicorn.org/en/stable/deploy.html
+
+## Reverse proxy
  - https://www.nginx.com/resources/glossary/reverse-proxy-server/
+
+## WSGI
+ - https://vsupalov.com/what-is-gunicorn/#:~:text=Gunicorns%20takes%20care%20of%20running,pretty%20darn%20fast%20about%20it.
+ - https://towardsdatascience.com/my-favorite-python-servers-to-deploy-into-production-d92289764fbe
+
+## ASGI
+ - https://learn.vonage.com/blog/2021/11/19/how-wsgi-vs-asgi-is-like-baking-a-cake/
 
 # Modified from
 
