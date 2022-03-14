@@ -10,16 +10,16 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install dependencies
-COPY webapp/requirements.txt /tmp/
+COPY app/requirements.txt /tmp/
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
 # Build app
-COPY webapp /opt/webapp/
-WORKDIR /opt/webapp
+COPY app /opt/app/
+WORKDIR /opt/app
 
 # Run the image as a non-root user
-# RUN adduser -D app-user
-# USER app-user
+RUN adduser -D app-user
+USER app-user
 
 # Expose is NOT supported by Heroku
 # EXPOSE 80
