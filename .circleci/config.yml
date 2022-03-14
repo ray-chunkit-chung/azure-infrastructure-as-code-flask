@@ -54,6 +54,7 @@ executors:
 
 # Define the jobs we want to run for this project
 jobs:
+  context: docker-auth
   # Specify build executors
   build-with-docker:
     executor: docker-executor
