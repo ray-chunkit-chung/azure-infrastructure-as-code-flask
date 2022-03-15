@@ -30,13 +30,9 @@ USER app-user
 # Production environment
 ###########################
 
-# Expose is NOT supported by Heroku
+# WEBSITES_PORT is set in Azure App Service Configuration > Application Setting
 EXPOSE $WEBSITES_PORT
-
-# Run the app. CMD is required to run on Heroku
-# $PORT is set by Heroku			
-CMD gunicorn --bind 0.0.0.0:$WEBSITES_PORT wsgi 
-
+CMD gunicorn --bind 0.0.0.0:$WEBSITES_PORT wsgi
 
 ###########################
 # Docker Desktop
