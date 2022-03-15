@@ -1,20 +1,13 @@
 version: "3.9"
 
 services:
-  app:
-    build: ./app
-    volumes:
-      - ./app/flaskapp:/app
-      - socket:/tmp
-    command: uwsgi --ini /app/app.ini
-
-  nginx:
-    image: nginx:stable-alpine
+  web:
+    build: .
+    image: $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
+    command: ["gunicorn", "--bind", "0.0.0.0:$WEBSITES_PORT", "wsgi"]
     ports:
-      - "8000:80"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - socket:/tmp
-
-volumes:
-  socket:
+      - "8000:$WEBSITES_PORT"
+    # expose:
+    #   - 5000
+    env_file:
+      - ./.env

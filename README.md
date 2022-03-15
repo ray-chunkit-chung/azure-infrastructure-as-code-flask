@@ -3,24 +3,6 @@
 App link
  - https://infra-as-code-starter-ray-chunkit-chung.azurewebsites.net/
 
-## App folder sctructure
-
-```bash
-.
-├── LICENSE
-├── README.md
-├── docker-compose.yml
-├── app
-│   ├── Dockerfile
-│   └── flaskapp
-│       ├── app.ini
-│       ├── app.py
-│       ├── requirements.txt
-│       └── wsgi.py
-└── web
-    └── nginx.conf
-```
-
 ## Quick start
 Install azure cli windows
  - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell

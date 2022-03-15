@@ -1,3 +1,0 @@
-uWSGI
-Flask
-Jinja2

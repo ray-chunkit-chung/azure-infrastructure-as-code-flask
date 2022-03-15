@@ -32,4 +32,3 @@ echo "You can now browse to http://$WEB_APP_NAME.azurewebsites.net"
 # az webapp config hostname add --webapp-name $WEBAPPNAME --resource-group $RESOURCEGROUPNAME --hostname $fqdn
 
 # echo "You can now browse to http://$fqdn"
-
