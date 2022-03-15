@@ -1,4 +1,8 @@
+###########################
 # Build environment
+###########################
+
+# Get minimal base image
 FROM alpine:latest as build
 RUN apk update
 RUN apk add --no-cache --update python3 py3-pip bash
@@ -17,14 +21,13 @@ RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 COPY app /opt/app/
 WORKDIR /opt/app
 
-
-###########################################
-# Manual deploy if no auto port binding
-###########################################
-
 # Run the image as a non-root user
 RUN adduser -D app-user
 USER app-user
+
+###########################
+# Production environment
+###########################
 
 # Expose is NOT supported by Heroku
 # EXPOSE 80
