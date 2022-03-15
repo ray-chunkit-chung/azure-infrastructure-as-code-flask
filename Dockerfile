@@ -31,11 +31,11 @@ USER app-user
 ###########################
 
 # Expose is NOT supported by Heroku
-# EXPOSE $WEBSITES_PORT
+EXPOSE $WEBSITES_PORT
 
 # Run the app. CMD is required to run on Heroku
 # $PORT is set by Heroku			
-CMD gunicorn --bind 0.0.0.0 wsgi 
+CMD gunicorn --bind 0.0.0.0:$WEBSITES_PORT wsgi 
 
 
 ###########################
