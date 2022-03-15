@@ -1,21 +1,18 @@
-version: "3.9"
-
 services:
+  app:
+    build: ./app
+    volumes:
+      - ./app/flaskapp:/app
+      - socket:/tmp
+    command: uwsgi --ini /app/app.ini
+
   web:
-    build: .
-    image: $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
-    command: ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi"]
-    # ports:
-    #   - "8080:5000"
-    expose:
-      - 5000
-    env_file:
-      - ./.env
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile.nginx
+    image: nginx:latest
     ports:
-      - 1337:80
-    depends_on:
-      - web
+      - "80:80"
+    volumes:
+      - ./web/nginx.conf:/etc/nginx/conf.d/default.conf
+      - socket:/tmp
+
+volumes:
+  socket:
