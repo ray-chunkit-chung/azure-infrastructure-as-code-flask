@@ -8,9 +8,10 @@ RUN apk update
 RUN apk add --no-cache --update python3 py3-pip bash
 
 # Prevents Python from writing pyc files to disc (equivalent to python -B option)
-ENV PYTHONDONTWRITEBYTECODE 1
+# ENV PYTHONDONTWRITEBYTECODE 1
 
 # Prevents Python from buffering stdout and stderr (equivalent to python -u option)
+# UNBUFFERED let us know all the log on console if the app crashed  
 ENV PYTHONUNBUFFERED 1
 
 # Install dependencies
