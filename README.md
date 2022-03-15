@@ -225,6 +225,10 @@ Good exmaples to setup production servers
 ## ASGI
  - https://learn.vonage.com/blog/2021/11/19/how-wsgi-vs-asgi-is-like-baking-a-cake/
 
+## uWSGI
+ - https://github.com/tiangolo/uwsgi-nginx-flask-docker
+ - https://amateur-engineer-blog.com/nginx-uwsgi-flask-docker/
+
 # Modified from
 
 ## Tutorial link
