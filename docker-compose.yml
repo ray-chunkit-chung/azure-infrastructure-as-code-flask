@@ -4,18 +4,11 @@ services:
   web:
     build: .
     image: $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
-    command: ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi"]
-    # ports:
-    #   - "8080:5000"
-    expose:
-      - 5000
+    command: ["gunicorn", "--bind", "0.0.0.0:$WEBSITES_PORT", "wsgi"]
+    ports:
+      - "8080:$WEBSITES_PORT"
+    # expose:
+    #   - 5000
     env_file:
       - ./.env
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile.nginx
-    ports:
-      - 1337:80
-    depends_on:
-      - web
+
