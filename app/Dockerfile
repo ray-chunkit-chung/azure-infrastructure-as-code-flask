@@ -27,18 +27,22 @@ RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements.txt
 # RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
+# Build app
+WORKDIR /app
+# COPY flaskapp /app/
+
+RUN mkdir -p /var/www/todobackend
+RUN mkdir -p /var/run/app-uwsgi
+RUN chown -R www-data:www-data /var/run/app-uwsgi
+
+# Run the image as a non-root user
+# RUN adduser -D app-user
+# USER app-user
 
 ###########################
 # Production environment
 ###########################
 
-# Build app
-# WORKDIR /opt/app
-# COPY app /opt/app/
-
-# Run the image as a non-root user
-# RUN adduser -D app-user
-# USER app-user
 
 # Expose is NOT supported by Heroku
 # EXPOSE 80

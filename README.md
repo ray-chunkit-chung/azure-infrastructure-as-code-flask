@@ -5,9 +5,6 @@ App link
 
 ## App folder sctructure
 
- - https://amateur-engineer-blog.com/nginx-uwsgi-flask-docker/
- - https://qiita.com/mintak21/items/d956389ee9338e6c0fe0
-
 ```bash
 .
 ├── LICENSE
@@ -224,6 +221,11 @@ Good exmaples to setup production servers
 
 ## ASGI
  - https://learn.vonage.com/blog/2021/11/19/how-wsgi-vs-asgi-is-like-baking-a-cake/
+
+## uWSGI x nginx
+ - https://github.com/tiangolo/uwsgi-nginx-flask-docker
+ - https://amateur-engineer-blog.com/nginx-uwsgi-flask-docker/
+ - https://qiita.com/mintak21/items/d956389ee9338e6c0fe0
 
 # Modified from
 
