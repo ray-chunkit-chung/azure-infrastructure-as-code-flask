@@ -181,6 +181,11 @@ If you still get the error, see this
 sudo chmod 666 /var/run/docker.sock
 ```
 
+# Docker Compose
+
+ - https://docs.microsoft.com/en-us/azure/app-service/quickstart-multi-container
+
+
 # Web server
 
 Good exmaples to setup production servers 
