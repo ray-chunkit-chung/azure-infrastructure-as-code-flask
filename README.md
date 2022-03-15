@@ -208,6 +208,7 @@ Good exmaples to setup production servers
  - https://github.com/tiangolo/uwsgi-nginx-flask-docker
  - https://amateur-engineer-blog.com/nginx-uwsgi-flask-docker/
  - https://qiita.com/mintak21/items/d956389ee9338e6c0fe0
+ - https://linuxhint.com/use-nginx-with-flask/
 
 
 # Modified from
