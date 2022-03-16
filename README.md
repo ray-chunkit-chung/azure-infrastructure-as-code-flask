@@ -1,7 +1,7 @@
 
 # Getting started on Azure infrastructure as code
 App link
- - https://infra-as-code-starter-ray-chunkit-chung.azurewebsites.net/
+ - https://infra-as-code-flask-ray-chunkit-chung.azurewebsites.net/
 
 ## Quick start
 Install azure cli windows

@@ -1,0 +1,80 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+# See: https://circleci.com/docs/2.0/configuration-reference/#steps
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+
+version: 2.1
+
+# Define test and build commands
+commands:
+  setup:
+    steps:
+      - setup_remote_docker:
+          version: 20.10.11
+          docker_layer_caching: true
+  build:
+    steps:
+      - setup
+      - checkout
+      - run: echo "this is the build job"
+      - run:
+          name: Build dev to dockerhub
+          command: |
+            docker build -t $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest .
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest
+  test:
+    steps:
+      - setup
+      - checkout
+      - run: echo "this is the test job"
+      - run:
+          name: Build test target
+          command: |
+            docker build -t unit-test --target test .
+            docker run --name unit-test unit-test
+  deploy:
+    steps:
+      - setup
+      - run: echo "this is the deploy job"
+      - run:
+          name: Push tested image to auto-deploy
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker pull $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest
+            docker tag $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest $DOCKER_USERNAME/azure-infrastructure-as-code-flask:latest
+            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-flask:latest
+
+# Define the executors for this project
+executors:
+  docker-executor:
+    docker:
+      - image: circleci/node:latest
+
+# Define the jobs we want to run for this project
+jobs:
+  # Specify build executors
+  build-with-docker:
+    executor: docker-executor
+    steps:
+      - build
+  # Specify test executors
+  test-with-docker:
+    executor: docker-executor
+    steps:
+      - test
+  # Specify deploy build executors
+  deploy-with-docker:
+    executor: docker-executor
+    steps:
+      - deploy
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - build-with-docker
+      - deploy-with-docker:
+          requires:
+            - build-with-docker

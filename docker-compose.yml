@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   web:
-    build: .
-    image: $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
+    # build: .
+    image: $DOCKER_USERNAME/azure-infrastructure-as-code-flask:latest
     command: ["gunicorn", "--bind", "0.0.0.0:$WEBSITES_PORT", "wsgi"]
     ports:
       - "8000:$WEBSITES_PORT"
