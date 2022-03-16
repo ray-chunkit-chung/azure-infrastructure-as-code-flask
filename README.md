@@ -18,11 +18,19 @@ source .env
 ```
 to source environment variables in .env file
 ```
+# Deploy infra parameters
 export SUBSCRIPTION_ID=foo-bar-foo-foo-bar
 export SUBSCRIPTION_NAME=foo-bar-foo-foo-bar
 export RESOURCEGROUP_NAME=foo-bar-foo-foo-bar
 export LOCATION=eastus
 export WEB_APP_NAME=foo-bar-foo-foo-bar
+export CUSTOM_DOMAIN_VERIFICATION_ID=foo-bar-foo-foo-bar
+
+# Deploy artifact parameters
+export DOCKER_USERNAME=raychung
+
+# App parameters
+export WEBSITES_PORT=12345
 ```
 
 Create
@@ -181,6 +189,11 @@ If you still get the error, see this
 sudo chmod 666 /var/run/docker.sock
 ```
 
+# Docker Compose
+
+ - https://docs.microsoft.com/en-us/azure/app-service/quickstart-multi-container
+
+
 # Web server
 
 Good exmaples to setup production servers 
@@ -198,6 +211,13 @@ Good exmaples to setup production servers
 
 ## ASGI
  - https://learn.vonage.com/blog/2021/11/19/how-wsgi-vs-asgi-is-like-baking-a-cake/
+
+## uWSGI x nginx
+ - https://github.com/tiangolo/uwsgi-nginx-flask-docker
+ - https://amateur-engineer-blog.com/nginx-uwsgi-flask-docker/
+ - https://qiita.com/mintak21/items/d956389ee9338e6c0fe0
+ - https://linuxhint.com/use-nginx-with-flask/
+
 
 # Modified from
 
