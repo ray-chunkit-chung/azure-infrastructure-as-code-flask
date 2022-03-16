@@ -3,12 +3,6 @@
 # Create a resource group.
 az group create --location $LOCATION --name $RESOURCEGROUP_NAME --subscription $SUBSCRIPTION_NAME
 
-# Create an App Service plan in SHARED tier (minimum required by custom domains).
-# az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
-
-# Create a web app.
-# az webapp create --name $WEBAPPNAME --resource-group $RESOURCEGROUPNAME --plan $WEBAPPNAME
-
 # Create serverfarm and web app from a single template.
 az deployment group create --resource-group $RESOURCEGROUP_NAME \
 --template-file ArmTemplate/AppService/template.json \
@@ -32,3 +26,18 @@ echo "You can now browse to http://$WEB_APP_NAME.azurewebsites.net"
 # az webapp config hostname add --webapp-name $WEBAPPNAME --resource-group $RESOURCEGROUPNAME --hostname $fqdn
 
 # echo "You can now browse to http://$fqdn"
+
+
+############################################################################################
+# Other deploy options
+############################################################################################
+
+# Create an App Service plan in SHARED tier (minimum required by custom domains).
+# az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
+
+# Create a web app.
+# az webapp create --name $WEBAPPNAME --resource-group $RESOURCEGROUPNAME --plan $WEBAPPNAME
+
+
+azure-infrastructure-as-code-flask
+

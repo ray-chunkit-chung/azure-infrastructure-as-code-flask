@@ -21,9 +21,9 @@ commands:
       - run:
           name: Build dev to dockerhub
           command: |
-            docker build -t $DOCKER_USERNAME/azure-infrastructure-as-code-starter-dev:latest .
+            docker build -t $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest .
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-starter-dev:latest
+            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest
   test:
     steps:
       - setup
@@ -42,9 +42,9 @@ commands:
           name: Push tested image to auto-deploy
           command: |
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker pull $DOCKER_USERNAME/azure-infrastructure-as-code-starter-dev:latest
-            docker tag $DOCKER_USERNAME/azure-infrastructure-as-code-starter-dev:latest $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
-            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-starter:latest
+            docker pull $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest
+            docker tag $DOCKER_USERNAME/azure-infrastructure-as-code-flask-dev:latest $DOCKER_USERNAME/azure-infrastructure-as-code-flask:latest
+            docker push $DOCKER_USERNAME/azure-infrastructure-as-code-flask:latest
 
 # Define the executors for this project
 executors:
